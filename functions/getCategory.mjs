@@ -3,6 +3,8 @@ import fetch from "node-fetch";
 exports.handler = async function () {
   const url = process.env.ASTRA_GRAPHQL_ENDPOINT;
   const token = process.env.ASTRA_DB_TOKEN;
+  console.log(url);
+  console.log(token);
   const query = `
     query getAllCategories {
         category(
@@ -27,7 +29,7 @@ exports.handler = async function () {
   const response = await fetch(url, options);
   try {
     const responseBody = await response.json();
-    // console.log(responseBody);
+    console.log(responseBody);
     return {
       statusCode: 200,
       body: JSON.stringify(responseBody),
