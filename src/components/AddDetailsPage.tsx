@@ -38,11 +38,12 @@ function AddDetailsPage() {
             <CardContainer>
                 <CategoryContainer>
                     <SubHeading>Category</SubHeading>
-                    <ViewCategory categories={categories} deleteUpdateCategories={deleteUpdateCategories} />
                     <AddCategoryContainer>
                         <InputField editInput={true} type="text" value={inputCategory} onChange={(e: any) => setInputCategory(e.target.value)} />
                         <CategorySubmitBut onClick={submitCategory}> Add</CategorySubmitBut>
                     </AddCategoryContainer>
+                    <ViewCategory categories={categories} deleteUpdateCategories={deleteUpdateCategories} />
+
                 </CategoryContainer>
 
             </CardContainer>
@@ -76,7 +77,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 height: 30px;
-margin: 0 5px 10px 10px;
+margin: 12px 5px 0 10px
 `;
 const CategorySubmitBut = styled.button`
 margin-left: 10px;

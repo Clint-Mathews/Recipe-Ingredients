@@ -9,9 +9,13 @@ import toastService, { ToastType } from '../utils/taostService';
 function EditViewInput({ item }: { item: Category }) {
     const dispatch = useAppDispatch();
     const updateCategoryData = async (data: string) => {
-        const responseData = await categoryApiService.updateCategory(item, data);
-        dispatch(updateCategory(responseData?.data?.updatecategory?.value));
-        toastService({ text: "Category updated", toastType: ToastType.Success });
+        if (data && item.category_name !== data) {
+            const responseData = await categoryApiService.updateCategory(item, data);
+            dispatch(updateCategory(responseData?.data?.updatecategory?.value));
+            toastService({ text: "Category updated", toastType: ToastType.Success });
+        } else {
+            setCategoryData(item.category_name);
+        }
     }
     const [categoryData, setCategoryData] = useState(item.category_name ? item.category_name : "");
     return (
