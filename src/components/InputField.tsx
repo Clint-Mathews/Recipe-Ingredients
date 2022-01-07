@@ -20,9 +20,10 @@ border: 1px solid rgb(0 0 0 / 30%) ;
 }
 transition: border 0.4s ease-in-out;   
 :focus,:hover{
+    color: black;
+    outline: 0;
     &.showBorder{
-    border: 1px solid rgb(0 0 0 / 53%) ;
+    border: 1px solid #0a66c2 ;
 }
-outline: 0;
 }
 `;

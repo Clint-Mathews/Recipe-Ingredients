@@ -36,7 +36,6 @@ const CategoryViewContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 33.33%);
 margin: 8px  0;
-;
 `;
 const SingleCategory = styled.div`
 display: flex;
@@ -50,6 +49,6 @@ transition: border 0.6s ease-in-out, color 0.4s ease-in-out;
 
 :hover{
 color: black;
-border: 1px solid rgb(0 0 0 / 57%) ; 
+border: 1px solid #0a66c2 ; 
 }
 `;
