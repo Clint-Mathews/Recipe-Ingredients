@@ -5481,17 +5481,17 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
   });
 }
 
-// functions/addCategory.js
+// functions/addCategory.mjs
 exports.handler = async function(event) {
   const url = process.env.ASTRA_GRAPHQL_ENDPOINT;
   const token = process.env.ASTRA_DB_TOKEN;
   const data = JSON.parse(event.body);
   const query = `mutation addCategory{
   insertcategory(
-    value: {label:"category",value:"${data.data}"},
+    value: {label:"category",value:"${data.data}",category_name:"${data.data}"},
     ifNotExists: true,
   ){
-    value{value}
+    value{value,category_name}
   }
 }
     `;

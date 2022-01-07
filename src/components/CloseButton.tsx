@@ -11,7 +11,7 @@ function CloseButton({ deleteCategory }: { deleteCategory: () => void }) {
 export default CloseButton
 
 const CloseBtn = styled.button`
-  margin: 0;
+margin: 0 10px;
   border: 0;
   padding: 0;
   border-radius: 50%;
@@ -27,7 +27,7 @@ const CloseBtn = styled.button`
   align-items: center;
   cursor: pointer;
   transition: all 150ms;
-  color:#40e0d0;
+  color:#0a66c2;
   &:hover,
   &:focus {
      color:red;

@@ -11,7 +11,8 @@ exports.handler = async function () {
             {
             values
                 {
-                value
+                value,
+                category_name
                 }
             }
         }

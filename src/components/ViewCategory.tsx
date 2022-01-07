@@ -1,27 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Category } from '../models/Category'
-import getAPIURL from '../utils/create.url';
 import CloseButton from './CloseButton';
-function ViewCategory({ categories, updateCategories }: { categories: Category[], updateCategories: (category: string) => void }) {
+import EditViewInput from './EditViewInput';
+import categoryApiService from '../utils/category-api.service'
+import toastService, { ToastType } from '../utils/taostService';
+
+
+function ViewCategory({ categories, deleteUpdateCategories }: { categories: Category[], deleteUpdateCategories: (category: string) => void }) {
     const deleteCategory = async (category: string) => {
-        const response = await fetch(getAPIURL('getRecipesBasedOnCategory'), {
-            body: JSON.stringify({ data: category }),
-            method: "POST"
-        });
-        const data = await response.json();
-        console.log(data.data.recipes.values);
+        const data = await categoryApiService.getRecipesBasedOnCategory(category);
         if (data.data.recipes.values.length) {
-            console.log('Data exists');
+            toastService({ text: "Recipe exists against the category", toastType: ToastType.Error });
         } else {
-            console.log("Data does not exist");
-            const response = await fetch(getAPIURL('deleteCategory'), {
-                body: JSON.stringify({ data: category }),
-                method: "POST"
-            });
-            const data = await response.json();
-            console.log(data);
-            updateCategories(category);
+            const data = await categoryApiService.deleteCategory(category);
+            toastService({ text: "Category deleted", toastType: ToastType.Success });
+            deleteUpdateCategories(category);
         }
     }
     return (
@@ -29,7 +23,7 @@ function ViewCategory({ categories, updateCategories }: { categories: Category[]
             {categories.map((item: Category) => {
                 return (
                     <SingleCategory key={item.value}>
-                        <span> {item.value}</span>
+                        <EditViewInput item={item} />
                         <CloseButton deleteCategory={() => deleteCategory(item.value)} />
                     </SingleCategory>)
             })}
@@ -41,21 +35,21 @@ export default ViewCategory
 const CategoryViewContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 33.33%);
-margin: 10px  0;
+margin: 8px  0;
 ;
 `;
 const SingleCategory = styled.div`
 display: flex;
 justify-content: space-between;
 margin: 10px;
-padding: 8px;
+height: 35px;
 align-items: center;
 border-radius:5px;
-outline: 4px solid #d6fdf9;
-transition: outline 0.6s ease-in-out, color 0.4s ease-in-out;
+border: 1px solid rgb(0 0 0 / 30%) ; 
+transition: border 0.6s ease-in-out, color 0.4s ease-in-out;
 
 :hover{
 color: black;
-outline: 4px solid #40e0d0;
+border: 1px solid rgb(0 0 0 / 57%) ; 
 }
 `;

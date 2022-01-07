@@ -5481,7 +5481,7 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
   });
 }
 
-// functions/getRecipesBasedOnCategory.js
+// functions/getRecipesBasedOnCategory.mjs
 exports.handler = async function(event) {
   console.log(event.body);
   const url = process.env.ASTRA_GRAPHQL_ENDPOINT;

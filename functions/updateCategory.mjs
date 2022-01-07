@@ -5,12 +5,20 @@ exports.handler = async function (event) {
   const token = process.env.ASTRA_DB_TOKEN;
 
   const data = JSON.parse(event.body);
-  const query = `mutation addCategory{
-  insertcategory(
-    value: {label:"category",value:"${data.data}",category_name:"${data.data}"},
-    ifNotExists: true,
+  const query = `
+  mutation updateCategory {
+  updatecategory(
+    ifExists:true
+    value:{
+      label:"category"
+      value:"${data.value}",
+      category_name:"${data.category_name}"
+    }
   ){
-    value{value,category_name}
+    value{
+      value,
+      category_name
+    }
   }
 }
     `;

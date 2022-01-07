@@ -5481,25 +5481,27 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
   });
 }
 
-// functions/getIngredientsBasedOnRecipe.mjs
+// functions/updateCategory.mjs
 exports.handler = async function(event) {
   const url = process.env.ASTRA_GRAPHQL_ENDPOINT;
   const token = process.env.ASTRA_DB_TOKEN;
   const data = JSON.parse(event.body);
   const query = `
-    query getIngredientsBasedOnRecipe{
-  ingredients(
-    value:{ recipe_name:"${data.data}"}
-    orderBy:[id_ASC]){
-    values{
-      id,
-      title,
-      description,
-    	thumbnail
+  mutation updateCategory {
+  updatecategory(
+    ifExists:true
+    value:{
+      label:"category"
+      value:"${data.value}",
+      category_name:"${data.category_name}"
+    }
+  ){
+    value{
+      value,
+      category_name
     }
   }
 }
-
     `;
   const options = {
     method: "POST",
@@ -5512,6 +5514,7 @@ exports.handler = async function(event) {
   const response = await fetch(url, options);
   try {
     const responseBody = await response.json();
+    console.log(responseBody);
     return {
       statusCode: 200,
       body: JSON.stringify(responseBody)
@@ -5526,4 +5529,4 @@ exports.handler = async function(event) {
 };
 /*! fetch-blob. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */
 /*! formdata-polyfill. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */
-//# sourceMappingURL=getIngredientsBasedOnRecipe.js.map
+//# sourceMappingURL=updateCategory.js.map

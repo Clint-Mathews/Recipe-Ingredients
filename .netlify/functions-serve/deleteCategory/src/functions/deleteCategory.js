@@ -5481,7 +5481,7 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
   });
 }
 
-// functions/deleteCategory.js
+// functions/deleteCategory.mjs
 exports.handler = async function(event) {
   const url = process.env.ASTRA_GRAPHQL_ENDPOINT;
   const token = process.env.ASTRA_DB_TOKEN;
