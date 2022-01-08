@@ -14,8 +14,9 @@ padding: 0;
 border:0;
 padding-left: 10px;
 width: 80%;
-height: 100%;
+height: 35px;
 &.showBorder{
+    height: 33px;
 border: 1px solid rgb(0 0 0 / 30%) ;
 }
 transition: border 0.4s ease-in-out;   

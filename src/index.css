@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.hideScrollBar::-webkit-scrollbar {
+  display: none !important;
+}
+.hideScrollBar {
+  -ns-overflow-stlye: none !important;
+  scrollbar-width: none !important;
+}

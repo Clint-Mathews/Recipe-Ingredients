@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 
-function CloseButton({ deleteCategory }: { deleteCategory: () => void }) {
+function CloseButton({ onClick }: { onClick: () => void }) {
   return (
-    <CloseBtn onClick={() => deleteCategory()}>
+    <CloseBtn onClick={() => onClick()}>
     </CloseBtn>
   )
 }

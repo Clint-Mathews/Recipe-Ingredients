@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Category } from '../models/Category'
-import CloseButton from './CloseButton';
+import CloseButton from '../ui-components/CloseButton';
 import EditViewInput from './EditViewInput';
 import categoryApiService from '../utils/category-api.service'
 import toastService, { ToastType } from '../utils/taostService';
+import recipeApiService from '../utils/recipe-api.service';
 
 
 function ViewCategory({ categories, deleteUpdateCategories }: { categories: Category[], deleteUpdateCategories: (category: string) => void }) {
     const deleteCategory = async (category: string) => {
-        const data = await categoryApiService.getRecipesBasedOnCategory(category);
+        const data = await recipeApiService.getRecipesBasedOnCategory(category);
         if (data.data.recipes.values.length) {
             toastService({ text: "Recipe exists against the category", toastType: ToastType.Error });
         } else {
@@ -24,7 +25,7 @@ function ViewCategory({ categories, deleteUpdateCategories }: { categories: Cate
                 return (
                     <SingleCategory key={item.value}>
                         <EditViewInput item={item} />
-                        <CloseButton deleteCategory={() => deleteCategory(item.value)} />
+                        <CloseButton onClick={() => deleteCategory(item.value)} />
                     </SingleCategory>)
             })}
         </CategoryViewContainer>

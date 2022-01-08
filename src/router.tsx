@@ -5,7 +5,7 @@ import {
     Route,
     Navigate
 } from "react-router-dom";
-import AddDetailsPage from './components/AddDetailsPage';
+import CategoryPage from './components/CategoryPage';
 import MainPage from './components/MainPage';
 import RecipePage from './components/RecipePage';
 function AppRouter() {
@@ -13,7 +13,7 @@ function AppRouter() {
         <Router>
             <Routes>
                 <Route path="/" element={<MainPage />} />
-                <Route path="/add-details" element={<AddDetailsPage />} />
+                <Route path="/category" element={<CategoryPage />} />
                 <Route path="/recipe" element={<RecipePage />} />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>

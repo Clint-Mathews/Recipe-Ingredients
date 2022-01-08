@@ -31,13 +31,6 @@ export const deleteCategory = async(category:string) => {
         const responseData = await response.json();
         return responseData;
 }
-export const getRecipesBasedOnCategory = async(category:string) => {
-        const response = await fetch(getAPIURL('getRecipesBasedOnCategory'), {
-            body: JSON.stringify({ data: category }),
-            method: "POST"
-        });
-        const responseData = await response.json();
-        return responseData;
-}
-const categoryApiService = { getCategories, addCategory, updateCategory, getRecipesBasedOnCategory, deleteCategory}
+
+const categoryApiService = { getCategories, addCategory, updateCategory, deleteCategory}
 export default categoryApiService;
