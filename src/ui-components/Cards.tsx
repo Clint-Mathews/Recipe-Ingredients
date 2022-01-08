@@ -12,7 +12,7 @@ import Ingredients from './Ingredients';
 function Cards({ recipe }: { recipe: Recipe }) {
 
     return (
-        <Card key={recipe.title} sx={{ maxWidth: 345, margin: "20px" }}>
+        <Card key={recipe.title} sx={{ margin: "20px" }}>
             <CardMedia
                 component="img"
                 height="100"
