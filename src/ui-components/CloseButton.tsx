@@ -38,7 +38,8 @@ margin: 0 10px;
 	
 	&:focus {
 		outline: solid 0 transparent;
-		box-shadow: 0 0 0 2px #af0000
+		box-shadow: 0 0 0 2px #af0000;
+     animation : loading-spinner .5s linear infinite;
 	}
 	
 	&:before, &:after {
@@ -54,7 +55,14 @@ margin: 0 10px;
 	}
 	
 	&:after { transform: rotate(-45deg); }
-
+  @keyframes loading-spinner {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(90deg);
+    }
+}
 `;
 
 
