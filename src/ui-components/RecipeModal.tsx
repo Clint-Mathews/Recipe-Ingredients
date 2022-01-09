@@ -195,6 +195,7 @@ align-items: center;
 /* margin: 12px 12px 0 10px; */
 display: grid;
     grid-template-columns: repeat(3, 33.33%);
+    border-top: 1.5px solid whitesmoke;
 `;
 // const RecipeContainer = styled.div`
 // background-color: white;
@@ -211,7 +212,7 @@ const HeadContainer = styled.div`
 display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
 `;
 
 const Input = styled.input`
