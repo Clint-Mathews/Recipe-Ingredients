@@ -14,10 +14,13 @@ function SelectCategoryField({ options, setCategory }: { options: Category[], se
         setAge(event.target.value);
         setCategory(event.target.value);
     };
+
     return (
         <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
                 <Select
+                    className="SelectHover"
+                    size='small'
                     displayEmpty
                     value={age}
                     onChange={handleChange}

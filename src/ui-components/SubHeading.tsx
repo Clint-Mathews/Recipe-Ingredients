@@ -9,6 +9,6 @@ function SubHeading({ heading }: { heading: string }) {
 
 export default SubHeading
 const SubHeadingContainer = styled.h2`
-margin:  0 0 0 10px;
+margin:  0 0 5px 10px;
 font-size:1.6rem;
 `;

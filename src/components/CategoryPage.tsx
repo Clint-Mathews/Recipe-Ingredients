@@ -57,37 +57,6 @@ function CategoryPage() {
                     </AddCategoryContainer>
                     <ViewCategory categories={categories} deleteUpdateCategories={deleteUpdateCategories} />
                 </CategoryContainer>
-                {/* <RecipeContainer>
-                    <SubHeading heading="Recipe" />
-                    <AddRecipeContainer>
-                        <FormInputSet>
-                            <Label label="Category" />
-                            <Select>
-                                {categories.map((item: Category) => {
-                                    return (<Option key={item.value} value={item.value}>{item.category_name}</Option>)
-                                })}
-                            </Select>
-                        </FormInputSet>
-                        <FormInputSet>
-                            <Label label="Recipe" />
-                            <Input type="text" />
-                        </FormInputSet>
-                        <FormInputSet>
-                            <Label label="Image URL" />
-                            <Input type="text" />
-                        </FormInputSet>
-                        <FormInputDescription>
-                            <Label label="Description" />
-                            <TextArea ></TextArea>
-                        </FormInputDescription>
-
-                        <ButtonContainer>
-                            <CategorySubmitBut >Add</CategorySubmitBut>
-                            <CategorySubmitBut className="cancel"> Clear</CategorySubmitBut>
-                        </ButtonContainer>
-                    </AddRecipeContainer>
-                </RecipeContainer> */}
-
             </CardContainer>
         </Container >
     )
@@ -116,19 +85,6 @@ justify-content: space-between;
 align-items: center;
 height: 30px;
 margin: 12px 12px 0 10px;
-`;
-const FormInputSet = styled.div`
-height: 54px;
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-`;
-const FormInputDescription = styled.div`
-grid-column: 1 / 3;
-height: 100px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 10px 10px 10px ;
 `;
 
 const CategorySubmitBut = styled.button`
@@ -185,89 +141,3 @@ background: rgb(0 0 0 / 28%)
 }
 `;
 
-
-const AddRecipeContainer = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-/* margin: 12px 12px 0 10px; */
-display: grid;
-    grid-template-columns: repeat(3, 33.33%);
-`;
-const RecipeContainer = styled.div`
-background-color: white;
-margin: 20px;
-border-radius: 10px;
-padding: 20px 20px 20px 25px;
-box-shadow: 0 0 25px rgb(0 0 0 / 10%);
-:hover{
-    box-shadow: 0 0 25px rgb(0 0 0 / 15%);
-}
-`;
-
-
-const Input = styled.input`
-margin: 0;
-border-radius:5px;
-padding: 0;
-padding-left: 10px;
-border: 1px solid rgb(0 0 0 / 30%) ;
-transition: border 0.4s ease-in-out;   
-height: 100%;
-:focus,:hover{
-    color: black;
-    outline: 0;
-    border: 1px solid #0a66c2 ;
-}
-`;
-
-const ButtonContainer = styled.div`
-display: flex;
-    margin-bottom: 10px;
-    align-self: end;
-`;
-
-const Select = styled.select`
-margin: 0;
-border-radius:5px;
-padding: 0;
-padding-left: 5px;
-border: 1px solid rgb(0 0 0 / 30%) ;
-transition: border 0.4s ease-in-out;   
-height: 100%;
-:focus,:hover{
-    color: black;
-    outline: 0;
-    border: 1px solid #0a66c2 ;
-}
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance:none;
-  background: transparent;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-  background-repeat: no-repeat;
-  background-position-x: 100%;
-  background-position-y: 5px;
-`;
-
-const Option = styled.option`
-margin: 0;
-border-radius:5px;
-padding: 0;
-height: 35px;
-`;
-
-const TextArea = styled.textarea`
-margin: 0;
-border-radius:5px;
-padding: 10px;
-border: 1px solid rgb(0 0 0 / 30%) ;
-transition: border 0.4s ease-in-out;   
-height: 100%;
- resize: none;
-:focus,:hover{
-    color: black;
-    outline: 0;
-    border: 1px solid #0a66c2 ;
-}
-`;

@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Recipe } from '../models/Recipe'
 import type { RootState } from '../store'
+import updateRecipeData from './updateRecipeData'
 
-// Define a type for the slice state
 interface RecipeState {
   recipes: Recipe[]
 }
@@ -19,8 +19,7 @@ export const recipeSlice = createSlice({
      state.recipes = action.payload;
     },
     updateRecipe: (state, action: PayloadAction<Recipe>) => {
-    //  state.recipes = updateCategoires(state.recipes, action.payload);
-     state.recipes = [];
+     state.recipes = updateRecipeData(state.recipes, action.payload);
     },
     addRecipe: (state, action: PayloadAction<Recipe>) => {
      state.recipes = [...state.recipes, action.payload];

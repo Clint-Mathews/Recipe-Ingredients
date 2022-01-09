@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,22 +8,29 @@ import Typography from '@mui/material/Typography';
 import { Recipe } from '../models/Recipe';
 import styled from 'styled-components';
 import Ingredients from './Ingredients';
+import RecipeModal from './RecipeModal';
+import RecipeDeleteModal from './RecipeDeleteModal';
 
-function Cards({ recipe }: { recipe: Recipe }) {
-
+function Cards({ recipe, category }: { recipe: Recipe, category: string }) {
+    const [openRecipeEdit, setOpenRecipeEdit] = useState(false);
+    const handleOpenRecipeEdit = () => setOpenRecipeEdit(true);
+    const handleCloseRecipeEdit = () => setOpenRecipeEdit(false);
+    const [openRecipedelete, setOpenRecipedelete] = useState(false);
+    const handleOpenRecipeDelete = () => setOpenRecipedelete(true);
+    const handleCloseRecipeDelete = () => setOpenRecipedelete(false);
     return (
-        <Card key={recipe.title} sx={{ margin: "20px" }}>
+        <Card key={recipe.recipe_name} sx={{ margin: "20px" }}>
             <CardMedia
                 component="img"
                 height="100"
                 image={recipe.thumbnail}
-                alt={recipe.title}
+                alt={recipe.recipe_name}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div" style={{
                     display: "flex", justifyContent: "space-between", alignItems: "center"
                 }}>
-                    {recipe.title}
+                    {recipe.recipe_name}
                     <ViewIngedients><Ingredients /></ViewIngedients>
                 </Typography>
                 <Typography variant="body2" color="text.secondary" style={{ height: 100, overflowY: "scroll" }} className="hideScrollBar">
@@ -34,8 +41,10 @@ function Cards({ recipe }: { recipe: Recipe }) {
                 display: "grid",
                 gridTemplateColumns: "repeat(2, 50%)"
             }}>
-                <Button size="small">Edit</Button>
-                <Button color="error" size="small">Delete</Button>
+                <Button onClick={handleOpenRecipeEdit} size="small">Edit</Button>
+                <Button onClick={handleOpenRecipeDelete} color="error" size="small">Delete</Button>
+                {openRecipeEdit && <RecipeModal category={category} isAdd={false} recipe={recipe} open={openRecipeEdit} handleClose={handleCloseRecipeEdit} />}
+                {openRecipedelete && <RecipeDeleteModal recipe={recipe} open={openRecipedelete} handleClose={handleCloseRecipeDelete} />}
             </CardActions>
         </Card >
     );

@@ -17,6 +17,9 @@ const Container = styled.div`
 border-bottom: 1px solid whitesmoke;
 display: flex;
 background-color: #0a66c2;
+position: sticky;
+  top: 0;
+      z-index: 100;
 `;
 const Heading = styled.h1`
 margin: 0;

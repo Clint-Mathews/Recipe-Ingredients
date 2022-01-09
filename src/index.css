@@ -20,3 +20,11 @@ code {
   -ns-overflow-stlye: none !important;
   scrollbar-width: none !important;
 }
+
+#recipe-ingedients-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.SelectHover:hover {
+  /* outline: 1px solid #0a66c2 !important; */
+}
