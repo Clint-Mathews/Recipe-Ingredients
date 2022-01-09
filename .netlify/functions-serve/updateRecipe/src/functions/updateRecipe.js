@@ -5486,7 +5486,6 @@ exports.handler = async function(event) {
   const url = process.env.ASTRA_GRAPHQL_ENDPOINT;
   const token = process.env.ASTRA_DB_TOKEN;
   const { data } = JSON.parse(event.body);
-  console.log(data);
   const query = `
 mutation updaterecipes{
   updaterecipes(
@@ -5509,7 +5508,6 @@ mutation updaterecipes{
   }
 }
     `;
-  console.log(query);
   const options = {
     method: "POST",
     headers: {
