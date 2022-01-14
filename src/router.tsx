@@ -6,6 +6,7 @@ import {
     Navigate
 } from "react-router-dom";
 import CategoryPage from './components/CategoryPage';
+import IngredientsPage from './components/IngredientsPage';
 import MainPage from './components/MainPage';
 import RecipePage from './components/RecipePage';
 function AppRouter() {
@@ -15,6 +16,7 @@ function AppRouter() {
                 <Route path="/" element={<MainPage />} />
                 <Route path="/category" element={<CategoryPage />} />
                 <Route path="/recipe" element={<RecipePage />} />
+                <Route path="/ingredient" element={<IngredientsPage />} />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </Router >

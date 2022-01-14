@@ -7,17 +7,23 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Recipe } from '../models/Recipe';
 import styled from 'styled-components';
-import Ingredients from './Ingredients';
+import IngredientsIcon from './IngredientsIcon';
 import RecipeModal from './RecipeModal';
 import RecipeDeleteModal from './RecipeDeleteModal';
+import { useNavigate } from 'react-router-dom';
 
 function Cards({ recipe, category }: { recipe: Recipe, category: string }) {
+    const navigate = useNavigate();
     const [openRecipeEdit, setOpenRecipeEdit] = useState(false);
     const handleOpenRecipeEdit = () => setOpenRecipeEdit(true);
     const handleCloseRecipeEdit = () => setOpenRecipeEdit(false);
     const [openRecipedelete, setOpenRecipedelete] = useState(false);
     const handleOpenRecipeDelete = () => setOpenRecipedelete(true);
     const handleCloseRecipeDelete = () => setOpenRecipedelete(false);
+    const navigateToIngredients = () => {
+        console.log(recipe.title);
+        navigate('/ingredient', { state: { recipe: recipe.title, recipeName: recipe.recipe_name } })
+    }
     return (
         <Card key={recipe.recipe_name} sx={{ margin: "20px" }}>
             <CardMedia
@@ -31,7 +37,7 @@ function Cards({ recipe, category }: { recipe: Recipe, category: string }) {
                     display: "flex", justifyContent: "space-between", alignItems: "center"
                 }}>
                     {recipe.recipe_name}
-                    <ViewIngedients><Ingredients /></ViewIngedients>
+                    <ViewIngedients onClick={navigateToIngredients}><IngredientsIcon /></ViewIngedients>
                 </Typography>
                 <Typography variant="body2" color="text.secondary" style={{ height: 100, overflowY: "scroll" }} className="hideScrollBar">
                     {recipe.description}

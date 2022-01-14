@@ -61,7 +61,7 @@ function RecipePage() {
 
     return (
         <Container>
-            <Header heading="Recipe" />
+            <Header heading="Recipe Shop Update" />
             <RecipeContainer>
                 <CategoryContainer>
                     <SubHeaingContainer>

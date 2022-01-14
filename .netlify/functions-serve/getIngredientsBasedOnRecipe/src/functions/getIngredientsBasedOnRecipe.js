@@ -5495,7 +5495,9 @@ exports.handler = async function(event) {
       id,
       title,
       description,
-    	thumbnail
+    	thumbnail,
+      recipe_name,
+      view_order
     }
   }
 }

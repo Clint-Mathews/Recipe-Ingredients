@@ -25,6 +25,16 @@ export const validateInput = (name:string, value:string) => {
       }
       break
 
+    case "ingedient":
+      if (value.trim() === "") {
+        hasError = true
+        error = "Ingedient cannot be empty"
+      } else {
+        hasError = false
+        error = ""
+      }
+      break
+
     //    else if (!/^[a-zA-Z ]+$/.test(value)) {
     //     hasError = true
     //     error = "Invalid title. Avoid Special characters"
@@ -34,7 +44,7 @@ export const validateInput = (name:string, value:string) => {
     case "description":
       if (value.trim() === "") {
         hasError = true
-        error = "Title cannot be empty"
+        error = "Description cannot be empty"
       } else {
         hasError = false
         error = ""

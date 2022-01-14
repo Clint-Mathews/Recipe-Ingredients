@@ -53,7 +53,9 @@ function RecipeModal({ recipe, open, handleClose, isAdd, category }: { recipe: R
         border: '2px solid whitesmoke',
         boxShadow: 24,
         borderRadius: "5px",
-        p: 2,
+        p: 3,
+        // maxWidth: "80%",
+        // maxHeight: "80%"
     };
     const updateForm = async (e: any) => {
         e.preventDefault();
