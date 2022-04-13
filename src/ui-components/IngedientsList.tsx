@@ -30,7 +30,9 @@ function IngedientsList({ recipeName }: { recipeName: string }) {
         const { destination, source, reason } = e;
         if (!destination || reason === 'CANCEL') return;
         if (destination.droppableId === source.droppableId && destination.index === source.index) return;
+        console.log(ingredients);
         const ingredientsToUpdate = updateIngredientOrder(JSON.parse(JSON.stringify(ingredients)), source.index, destination.index);
+        console.log(ingredientsToUpdate);
         const startIndex = source.index < destination.index ? source.index : destination.index;
         const endIndex = source.index === startIndex ? destination.index : source.index;
         dispatch(setIngredients(ingredientsToUpdate));

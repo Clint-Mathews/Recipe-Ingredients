@@ -21,7 +21,6 @@ function Cards({ recipe, category }: { recipe: Recipe, category: string }) {
     const handleOpenRecipeDelete = () => setOpenRecipedelete(true);
     const handleCloseRecipeDelete = () => setOpenRecipedelete(false);
     const navigateToIngredients = () => {
-        console.log(recipe.title);
         navigate('/ingredient', { state: { recipe: recipe.title, recipeName: recipe.recipe_name } })
     }
     return (

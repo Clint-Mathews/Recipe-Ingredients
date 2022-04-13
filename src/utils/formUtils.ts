@@ -1,11 +1,31 @@
 import checkImageUrlValid from "./checkImageUrlValid"
 
 export const UPDATE_FORM = "UPDATE_FORM"
+export const RESET = "RESET"
 
 export const validateInput = (name:string, value:string) => {
+  console.log(process.env.REACT_APP_USERNAME);
   let hasError = false,
     error = ""
   switch (name) {
+    case "username":
+      if (value.trim() !== process.env.REACT_APP_USERNAME) {
+        hasError = true
+        error = "Invalid username"
+      } else {
+        hasError = false
+        error = ""
+      }
+      break
+    case "password":
+      if (value.trim() !== process.env.REACT_APP_PASSWORD) {
+        hasError = true
+        error = "Invalid password"
+      } else {
+        hasError = false
+        error = ""
+      }
+      break
     case "category":
       if (value.trim() === "") {
         hasError = true
