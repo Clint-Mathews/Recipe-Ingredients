@@ -15,7 +15,6 @@ function IngredientDeleteModal({ open, handleClose, ingredient }: { open: boolea
     const deleteRecipeFn = async () => {
         setIsLoading(true);
         const responseData = await ingredientApiService.deleteIngredientFromList(ingredient);
-        console.log(responseData);
         dispatch(deleteIngredient(responseData?.data?.deleteingredients?.value?.id));
         toastService({ text: `Ingredient deleted`, toastType: ToastType.Success });
         setIsLoading(prev => false);

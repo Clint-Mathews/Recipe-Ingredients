@@ -8,12 +8,21 @@ import toastService, { ToastType } from '../utils/taostService';
 import { useAppDispatch } from '../hooks';
 import { deleteRecipe } from '../utils/recipeSlice';
 import Fade from '@mui/material/Fade';
+import ingredientApiService from '../utils/ingredients-api.service';
+import { Ingredient } from '../models/Ingredient';
 
 function RecipeDeleteModal({ open, handleClose, recipe }: { open: boolean, handleClose: () => void, recipe: Recipe }) {
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useAppDispatch();
     const deleteRecipeFn = async () => {
         setIsLoading(true);
+        const ingredients = await ingredientApiService.getIngredientsBasedOnRecipe(recipe.recipe_name)
+        if (ingredients?.data?.ingredients?.values?.length > 0) {
+            const data = ingredients?.data?.ingredients?.values
+            data.forEach(async (ingredient: Ingredient) => {
+                await ingredientApiService.deleteIngredientFromList(ingredient);
+            });
+        }
         const responseData = await recipeApiService.deleteRecipeFromList(recipe);
         dispatch(deleteRecipe(responseData?.data?.deleterecipes?.value?.title));
         toastService({ text: `Recipe deleted`, toastType: ToastType.Success });
