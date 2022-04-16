@@ -9,9 +9,9 @@ Recipe-Ingredients is website to view recipe and ingredients, which also provide
 ## Technical Dependencies:
 
 - React Js
--- Redux toolkit for state management
--- Redux persist to retain states
--- Material UI as UI framework
+- - Redux toolkit for state management
+- - Redux persist to retain states
+- - Material UI as UI framework
 - Astra Db account and database
 - Netlify account to deploy the app
 
