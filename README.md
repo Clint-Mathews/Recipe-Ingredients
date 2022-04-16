@@ -22,7 +22,13 @@ Credentials for login to admin panel to add recipes :
 - - Redux toolkit for state management
 - - Redux persist to retain states
 - - Material UI as UI framework
+- - Using centralized validation via validation form service and reducer hook
 - DataStax Astra account and database
 - - Using GraphQL API provided by DataStax Astra
 - Netlify account to deploy the app
 
+## ToDo:
+
+- Update reused code to common components
+- UI updates
+- Validation updates as image only accpets some types.
