@@ -1,7 +1,7 @@
 ### Recipe-Ingredients
 Recipe-Ingredients is website to view recipe and ingredients, which also provides a simple interface input the data via login
 
-Webiste link : https://recipe-ingredient.netlify.app/recipes
+Webiste link : https://recipe-ingredient.netlify.app/recipes<br>
 Credentials for login to admin panel to add recipes : 
 - Username : user
 - Password : pass
