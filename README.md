@@ -31,4 +31,4 @@ Credentials for login to admin panel to add recipes :
 
 - Update reused code to common components
 - UI updates
-- Validation updates as image only accpets some types.
+- Validation updates as image only accepts some types.
